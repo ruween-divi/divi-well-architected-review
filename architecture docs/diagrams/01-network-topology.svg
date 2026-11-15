@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2420" height="1170" viewBox="0 0 2420 1170" font-family="Helvetica, Arial, sans-serif">
+<defs>
+<marker id="a-erp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C2570C"/></marker>
+<marker id="a-app" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5B6770"/></marker>
+<marker id="a-ops" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#147EB4"/></marker>
+<marker id="a-net" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8C4FFF"/></marker>
+<marker id="a-deploy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3B7D23"/></marker>
+<marker id="a-ext" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8A949E"/></marker>
+</defs>
+<rect width="2420" height="1170" fill="#FFFFFF"/>
+<text x="24" y="34" font-size="22" font-weight="700" fill="#232F3E">Network topology across the Divi AWS accounts — VPCs, CIDRs, VPN and peering</text>
+<text x="24" y="56" font-size="12.5" fill="#5B6770">VPC-level view of divi-ai-prod, divi-ai-stg, shared and rb-main · snapshot 2026-11-15 from read-only AWS API calls</text>
+<rect x="30" y="130" width="740" height="725" rx="5" fill="none" stroke="#CD2264" stroke-width="1.6"/>
+<rect x="36" y="136" width="30" height="20" rx="3" fill="#CD2264"/>
+<text x="51" y="150" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">ACC</text>
+<text x="72" y="151" font-size="12" font-weight="700" fill="#CD2264" text-anchor="start">divi-ai-prod · 832569409513 · ap-southeast-2</text>
+<rect x="1290" y="130" width="740" height="725" rx="5" fill="none" stroke="#CD2264" stroke-width="1.6"/>
+<rect x="1296" y="136" width="30" height="20" rx="3" fill="#CD2264"/>
+<text x="1311" y="150" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">ACC</text>
+<text x="1332" y="151" font-size="12" font-weight="700" fill="#CD2264" text-anchor="start">divi-ai-stg · 398437580121 · ap-southeast-2</text>
+<rect x="50" y="175" width="700" height="635" rx="5" fill="none" stroke="#8C4FFF" stroke-width="1.6"/>
+<rect x="56" y="181" width="30" height="20" rx="3" fill="#8C4FFF"/>
+<text x="71" y="195" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">VPC</text>
+<text x="92" y="196" font-size="12" font-weight="700" fill="#6B3FD1" text-anchor="start">VPC divi-prod · 10.30.0.0/16</text>
+<text x="92" y="211" font-size="10.5" fill="#5B6770" text-anchor="start">vpc-0bd28e628e263cb74</text>
+<rect x="1310" y="175" width="700" height="635" rx="5" fill="none" stroke="#8C4FFF" stroke-width="1.6"/>
+<rect x="1316" y="181" width="30" height="20" rx="3" fill="#8C4FFF"/>
+<text x="1331" y="195" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">VPC</text>
+<text x="1352" y="196" font-size="12" font-weight="700" fill="#6B3FD1" text-anchor="start">VPC divi-stg · 10.20.0.0/16</text>
+<text x="1352" y="211" font-size="10.5" fill="#5B6770" text-anchor="start">vpc-036f8752bf325cfcd</text>
+<rect x="30" y="880" width="520" height="160" rx="5" fill="none" stroke="#CD2264" stroke-width="1.6"/>
+<rect x="36" y="886" width="30" height="20" rx="3" fill="#CD2264"/>
+<text x="51" y="900" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">ACC</text>
+<text x="72" y="901" font-size="12" font-weight="700" fill="#CD2264" text-anchor="start">rb-main · 892166101996 (management)</text>
+<rect x="570" y="880" width="520" height="160" rx="5" fill="none" stroke="#CD2264" stroke-width="1.6"/>
+<rect x="576" y="886" width="30" height="20" rx="3" fill="#CD2264"/>
+<text x="591" y="900" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">ACC</text>
+<text x="612" y="901" font-size="12" font-weight="700" fill="#CD2264" text-anchor="start">shared · 962705291721</text>
+<rect x="960" y="470" width="260" height="210" rx="5" fill="none" stroke="#5A6C86" stroke-width="1.6"/>
+<rect x="966" y="476" width="30" height="20" rx="3" fill="#5A6C86"/>
+<text x="981" y="490" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">DC</text>
+<text x="1002" y="491" font-size="12" font-weight="700" fill="#3F4E63" text-anchor="start">Nocelle customer network</text>
+<rect x="1110" y="880" width="320" height="160" rx="5" fill="none" stroke="#CD2264" stroke-width="1.6"/>
+<rect x="1116" y="886" width="30" height="20" rx="3" fill="#CD2264"/>
+<text x="1131" y="900" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">ACC</text>
+<text x="1152" y="901" font-size="12" font-weight="700" fill="#CD2264" text-anchor="start">security · 041558033420</text>
+<rect x="2110" y="400" width="280" height="160" rx="5" fill="#F4F6F8" stroke="#7D8998" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="2120" y="421" font-size="12" font-weight="700" fill="#3F4E63" text-anchor="start">Peer VPC (not inspected)</text>
+<rect x="70" y="230" width="210" height="565" rx="5" fill="none" stroke="#147EB4" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="80" y="251" font-size="12" font-weight="700" fill="#147EB4" text-anchor="start">AZ ap-southeast-2a</text>
+<rect x="290" y="230" width="210" height="565" rx="5" fill="none" stroke="#147EB4" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="300" y="251" font-size="12" font-weight="700" fill="#147EB4" text-anchor="start">AZ ap-southeast-2b</text>
+<rect x="510" y="230" width="210" height="565" rx="5" fill="none" stroke="#147EB4" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="520" y="251" font-size="12" font-weight="700" fill="#147EB4" text-anchor="start">AZ ap-southeast-2c</text>
+<rect x="1330" y="230" width="210" height="565" rx="5" fill="none" stroke="#147EB4" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="1340" y="251" font-size="12" font-weight="700" fill="#147EB4" text-anchor="start">AZ ap-southeast-2a</text>
+<rect x="1550" y="230" width="210" height="565" rx="5" fill="none" stroke="#147EB4" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="1560" y="251" font-size="12" font-weight="700" fill="#147EB4" text-anchor="start">AZ ap-southeast-2b</text>
+<rect x="1770" y="230" width="210" height="565" rx="5" fill="none" stroke="#147EB4" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="1780" y="251" font-size="12" font-weight="700" fill="#147EB4" text-anchor="start">AZ ap-southeast-2c</text>
+<rect x="78" y="510" width="194" height="270" rx="5" fill="#E6F2F8" stroke="#147EB4" stroke-width="1.6"/>
+<rect x="84" y="516" width="30" height="20" rx="3" fill="#147EB4"/>
+<text x="99" y="530" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PRV</text>
+<text x="120" y="531" font-size="10" font-weight="700" fill="#147EB4" text-anchor="start">divi-prod-private-1 · 10.30.4.0/24</text>
+<text x="120" y="546" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-0cc9970dfa27c43ea ·</text>
+<text x="120" y="559" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0497cc5794fb1490a</text>
+<rect x="298" y="510" width="194" height="270" rx="5" fill="#E6F2F8" stroke="#147EB4" stroke-width="1.6"/>
+<rect x="304" y="516" width="30" height="20" rx="3" fill="#147EB4"/>
+<text x="319" y="530" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PRV</text>
+<text x="340" y="531" font-size="10" font-weight="700" fill="#147EB4" text-anchor="start">divi-prod-private-2 · 10.30.5.0/24</text>
+<text x="340" y="546" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-09b67f5903efcb403 ·</text>
+<text x="340" y="559" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0157cb29e296556ca</text>
+<rect x="518" y="510" width="194" height="270" rx="5" fill="#E6F2F8" stroke="#147EB4" stroke-width="1.6"/>
+<rect x="524" y="516" width="30" height="20" rx="3" fill="#147EB4"/>
+<text x="539" y="530" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PRV</text>
+<text x="560" y="531" font-size="10" font-weight="700" fill="#147EB4" text-anchor="start">divi-prod-private-3 · 10.30.6.0/24</text>
+<text x="560" y="546" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-06e980d3bf83c96ec ·</text>
+<text x="560" y="559" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0015edfb2bc8841ba</text>
+<rect x="1338" y="510" width="194" height="270" rx="5" fill="#E6F2F8" stroke="#147EB4" stroke-width="1.6"/>
+<rect x="1344" y="516" width="30" height="20" rx="3" fill="#147EB4"/>
+<text x="1359" y="530" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PRV</text>
+<text x="1380" y="531" font-size="10" font-weight="700" fill="#147EB4" text-anchor="start">divi-stg-private-1 · 10.20.4.0/24</text>
+<text x="1380" y="546" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-001728a95ee8c833d ·</text>
+<text x="1380" y="559" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0c6aa3f7dc7c304b1</text>
+<rect x="1558" y="510" width="194" height="270" rx="5" fill="#E6F2F8" stroke="#147EB4" stroke-width="1.6"/>
+<rect x="1564" y="516" width="30" height="20" rx="3" fill="#147EB4"/>
+<text x="1579" y="530" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PRV</text>
+<text x="1600" y="531" font-size="10" font-weight="700" fill="#147EB4" text-anchor="start">divi-stg-private-2 · 10.20.5.0/24</text>
+<text x="1600" y="546" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-09a556ef2beda6972 ·</text>
+<text x="1600" y="559" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0a796d061c660c90c</text>
+<rect x="1778" y="510" width="194" height="270" rx="5" fill="#E6F2F8" stroke="#147EB4" stroke-width="1.6"/>
+<rect x="1784" y="516" width="30" height="20" rx="3" fill="#147EB4"/>
+<text x="1799" y="530" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PRV</text>
+<text x="1820" y="531" font-size="10" font-weight="700" fill="#147EB4" text-anchor="start">divi-stg-private-3 · 10.20.6.0/24</text>
+<text x="1820" y="546" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-0bf57ebf49ca7282c ·</text>
+<text x="1820" y="559" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0f6fb62002aee0cc6</text>
+<rect x="78" y="260" width="194" height="235" rx="5" fill="#F2F6E8" stroke="#7AA116" stroke-width="1.6"/>
+<rect x="84" y="266" width="30" height="20" rx="3" fill="#7AA116"/>
+<text x="99" y="280" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PUB</text>
+<text x="120" y="281" font-size="10" font-weight="700" fill="#3F6B0F" text-anchor="start">divi-prod-public-1 · 10.30.1.0/24</text>
+<text x="120" y="296" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-0f097393441c15e15 ·</text>
+<text x="120" y="309" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0a4f62a9605ee66c7 ·</text>
+<text x="120" y="322" font-size="10.5" fill="#5B6770" text-anchor="start">0.0.0.0/0 → IGW</text>
+<rect x="298" y="260" width="194" height="235" rx="5" fill="#F2F6E8" stroke="#7AA116" stroke-width="1.6"/>
+<rect x="304" y="266" width="30" height="20" rx="3" fill="#7AA116"/>
+<text x="319" y="280" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PUB</text>
+<text x="340" y="281" font-size="10" font-weight="700" fill="#3F6B0F" text-anchor="start">divi-prod-public-2 · 10.30.2.0/24</text>
+<text x="340" y="296" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-0cfa112909a482264 ·</text>
+<text x="340" y="309" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0a4f62a9605ee66c7 ·</text>
+<text x="340" y="322" font-size="10.5" fill="#5B6770" text-anchor="start">0.0.0.0/0 → IGW</text>
+<rect x="518" y="260" width="194" height="235" rx="5" fill="#F2F6E8" stroke="#7AA116" stroke-width="1.6"/>
+<rect x="524" y="266" width="30" height="20" rx="3" fill="#7AA116"/>
+<text x="539" y="280" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PUB</text>
+<text x="560" y="281" font-size="10" font-weight="700" fill="#3F6B0F" text-anchor="start">divi-prod-public-3 · 10.30.3.0/24</text>
+<text x="560" y="296" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-08a72b6b80d57cfc5 ·</text>
+<text x="560" y="309" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0a4f62a9605ee66c7 ·</text>
+<text x="560" y="322" font-size="10.5" fill="#5B6770" text-anchor="start">0.0.0.0/0 → IGW</text>
+<rect x="1338" y="260" width="194" height="235" rx="5" fill="#F2F6E8" stroke="#7AA116" stroke-width="1.6"/>
+<rect x="1344" y="266" width="30" height="20" rx="3" fill="#7AA116"/>
+<text x="1359" y="280" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PUB</text>
+<text x="1380" y="281" font-size="10" font-weight="700" fill="#3F6B0F" text-anchor="start">divi-stg-public-1 · 10.20.1.0/24</text>
+<text x="1380" y="296" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-0ae0d3be502ed959b ·</text>
+<text x="1380" y="309" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0e0cd80aaac7dfec6 ·</text>
+<text x="1380" y="322" font-size="10.5" fill="#5B6770" text-anchor="start">0.0.0.0/0 → IGW</text>
+<rect x="1558" y="260" width="194" height="235" rx="5" fill="#F2F6E8" stroke="#7AA116" stroke-width="1.6"/>
+<rect x="1564" y="266" width="30" height="20" rx="3" fill="#7AA116"/>
+<text x="1579" y="280" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PUB</text>
+<text x="1600" y="281" font-size="10" font-weight="700" fill="#3F6B0F" text-anchor="start">divi-stg-public-2 · 10.20.2.0/24</text>
+<text x="1600" y="296" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-064eb68fa2ff0199b ·</text>
+<text x="1600" y="309" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0e0cd80aaac7dfec6 ·</text>
+<text x="1600" y="322" font-size="10.5" fill="#5B6770" text-anchor="start">0.0.0.0/0 → IGW</text>
+<rect x="1778" y="260" width="194" height="235" rx="5" fill="#F2F6E8" stroke="#7AA116" stroke-width="1.6"/>
+<rect x="1784" y="266" width="30" height="20" rx="3" fill="#7AA116"/>
+<text x="1799" y="280" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">PUB</text>
+<text x="1820" y="281" font-size="10" font-weight="700" fill="#3F6B0F" text-anchor="start">divi-stg-public-3 · 10.20.3.0/24</text>
+<text x="1820" y="296" font-size="10.5" fill="#5B6770" text-anchor="start">subnet-0d8142a2adaa03050 ·</text>
+<text x="1820" y="309" font-size="10.5" fill="#5B6770" text-anchor="start">rtb-0e0cd80aaac7dfec6 ·</text>
+<text x="1820" y="322" font-size="10.5" fill="#5B6770" text-anchor="start">0.0.0.0/0 → IGW</text>
+<rect x="1450" y="880" width="940" height="255" rx="5" fill="#FFFFFF" stroke="#9AA5AE" stroke-width="1.6"/>
+<text x="1460" y="901" font-size="12" font-weight="700" fill="#3F4E63" text-anchor="start">CIDR plan (as deployed)</text>
+<rect x="78" y="340" width="674" height="34" rx="5" fill="#FFFFFF" stroke="#9AA5AE" stroke-width="1.6"/>
+<text x="88" y="361" font-size="12" font-weight="700" fill="#3F4E63" text-anchor="start"></text>
+<rect x="1338" y="340" width="674" height="34" rx="5" fill="#FFFFFF" stroke="#9AA5AE" stroke-width="1.6"/>
+<text x="1348" y="361" font-size="12" font-weight="700" fill="#3F4E63" text-anchor="start"></text>
+<text x="90" y="581" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">Residents:</text>
+<text x="90" y="594" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• divi-prod-bastion (t3.large)</text>
+<text x="90" y="607" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• divi-prod-socat (t3.medium)</text>
+<text x="90" y="620" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• MSK broker</text>
+<text x="90" y="633" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• ECS Fargate tasks</text>
+<text x="90" y="646" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• Lambda ENIs</text>
+<text x="90" y="659" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• MSK Connect worker</text>
+<text x="310" y="581" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">Residents:</text>
+<text x="310" y="594" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• RDS divi-prod-postgres</text>
+<text x="310" y="607" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">  (single-AZ, db.m5.large)</text>
+<text x="310" y="620" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• MSK broker</text>
+<text x="310" y="633" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• ECS Fargate tasks</text>
+<text x="310" y="646" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• Lambda ENIs</text>
+<text x="530" y="581" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">Residents:</text>
+<text x="530" y="594" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• MSK broker</text>
+<text x="530" y="607" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• ECS Fargate tasks</text>
+<text x="530" y="620" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• Lambda ENIs</text>
+<text x="124" y="359" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start">ALB divi-prod-public · internet-facing · spans the three public subnets · SG divi-prod-public-alb (80/443)</text>
+<text x="73" y="831" font-size="10" font-weight="400" fill="#5B6770" text-anchor="start">Private route tables: 0.0.0.0/0 → NAT instance ENI · 192.168.0.0/24 → VGW</text>
+<text x="73" y="844" font-size="10" font-weight="400" fill="#5B6770" text-anchor="start">No VPC endpoints · no VPC flow logs · security groups: see appendix</text>
+<text x="1350" y="581" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">Residents:</text>
+<text x="1350" y="594" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• divi-stg-bastion-manual</text>
+<text x="1350" y="607" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• div-stg-socat (t3.medium)</text>
+<text x="1350" y="620" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• divi-stg-testing (stopped)</text>
+<text x="1350" y="633" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• MSK broker</text>
+<text x="1350" y="646" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• ECS Fargate tasks</text>
+<text x="1350" y="659" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• Lambda ENIs</text>
+<text x="1350" y="672" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• MSK Connect workers (2)</text>
+<text x="1570" y="581" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">Residents:</text>
+<text x="1570" y="594" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• RDS divi-stg-postgres</text>
+<text x="1570" y="607" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">  (single-AZ, db.m5.large)</text>
+<text x="1570" y="620" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• MSK broker</text>
+<text x="1570" y="633" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• ECS Fargate tasks</text>
+<text x="1570" y="646" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• Lambda ENIs</text>
+<text x="1790" y="581" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">Residents:</text>
+<text x="1790" y="594" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• MSK broker</text>
+<text x="1790" y="607" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• ECS Fargate tasks</text>
+<text x="1790" y="620" font-size="9.5" font-weight="400" fill="#232F3E" text-anchor="start">• Lambda ENIs</text>
+<text x="1384" y="359" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start">ALB divi-stg-public · internet-facing · spans the three public subnets · SG divi-stg-public-alb (80/443)</text>
+<text x="1333" y="831" font-size="10" font-weight="400" fill="#5B6770" text-anchor="start">Private route tables: 0.0.0.0/0 → NAT instance ENI · 192.168.0.0/24 → VGW · 10.40.0.0/16 → pcx</text>
+<text x="1333" y="844" font-size="10" font-weight="400" fill="#5B6770" text-anchor="start">No VPC endpoints · no VPC flow logs · security groups: see appendix</text>
+<text x="976" y="614" font-size="9" font-weight="400" fill="#232F3E" text-anchor="start">Customer gateways (BGP ASN 65000, static routing):</text>
+<text x="976" y="626" font-size="9" font-weight="400" fill="#232F3E" text-anchor="start">cgw-045c852571155a6dd (prod)</text>
+<text x="976" y="638" font-size="9" font-weight="400" fill="#232F3E" text-anchor="start">cgw-05a17bc4e25d65d19 (stg)</text>
+<text x="48" y="934" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start">Default VPCs only, 172.31.0.0/16 — no workloads</text>
+<text x="48" y="949" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start">ap-southeast-2: vpc-07a7ff37cb5989c72</text>
+<text x="48" y="964" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start">us-east-1: vpc-0a081c601f65d8290</text>
+<text x="588" y="934" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start">Default VPC only, 172.31.0.0/16 (vpc-09eb020ae6ce094fb):</text>
+<text x="588" y="948" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start">3 public /20 subnets, IGW igw-0356c44ff30c4454b — no workloads</text>
+<text x="588" y="962" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start"></text>
+<text x="588" y="976" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start">ECR is reached via its regional public endpoint: prod and stg</text>
+<text x="588" y="990" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start">tasks pull images through their NAT instances (no VPC endpoints)</text>
+<text x="1128" y="934" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start">Not inspected (no profile in scope)</text>
+<text x="1128" y="949" font-size="10" font-weight="400" fill="#232F3E" text-anchor="start">Holds org-trail-logs-041558033420</text>
+<text x="1468" y="930" font-size="10.5" font-weight="400" fill="#232F3E" text-anchor="start">10.20.0.0/16      divi-stg VPC (vpc-036f8752bf325cfcd) — 3 public + 3 private /24</text>
+<text x="1468" y="947" font-size="10.5" font-weight="400" fill="#232F3E" text-anchor="start">10.30.0.0/16      divi-prod VPC (vpc-0bd28e628e263cb74) — 3 public + 3 private /24</text>
+<text x="1468" y="964" font-size="10.5" font-weight="400" fill="#232F3E" text-anchor="start">10.40.0.0/16      peer VPC in account 156358246875, peered to divi-stg only</text>
+<text x="1468" y="981" font-size="10.5" font-weight="400" fill="#232F3E" text-anchor="start">192.168.0.0/24    Nocelle customer network, reached over one site-to-site VPN per environment (static routes, 2 tunnels each)</text>
+<text x="1468" y="998" font-size="10.5" font-weight="400" fill="#232F3E" text-anchor="start">172.31.0.0/16     default VPCs in prod (vpc-057d805d64b10952d), stg (vpc-069f67711034e5621), shared and rb-main (×2) — unused, overlapping, not connected</text>
+<text x="1468" y="1015" font-size="10.5" font-weight="400" fill="#232F3E" text-anchor="start"></text>
+<text x="1468" y="1032" font-size="10.5" font-weight="400" fill="#232F3E" text-anchor="start">Egress: private subnets default-route to NAT *instances* (t3.nano, one per AZ), not NAT Gateways</text>
+<text x="1468" y="1049" font-size="10.5" font-weight="400" fill="#232F3E" text-anchor="start">Ingress: single internet-facing ALB per VPC (public subnets) · OpenVPN on divi-&lt;env&gt;-vpn (UDP 1194, TCP 443)</text>
+<text x="1468" y="1066" font-size="10.5" font-weight="400" fill="#232F3E" text-anchor="start">Not present in any of the four accounts: Transit Gateway, VPC endpoints, Route 53 hosted zones/resolver endpoints, VPC flow logs</text>
+<path d="M1030.0,175.0 L630.0,175.0" fill="none" stroke="#5B6770" stroke-width="2.0" marker-end="url(#a-app)" stroke-linejoin="round"/>
+<path d="M1078.0,175.0 L1690.0,175.0" fill="none" stroke="#5B6770" stroke-width="2.0" marker-end="url(#a-app)" stroke-linejoin="round"/>
+<path d="M770.0,490.0 L960.0,490.0" fill="none" stroke="#8C4FFF" stroke-width="2.2" stroke-dasharray="7 4" marker-end="url(#a-net)" stroke-linejoin="round"/>
+<path d="M1290.0,490.0 L1220.0,490.0" fill="none" stroke="#8C4FFF" stroke-width="2.2" stroke-dasharray="7 4" marker-end="url(#a-net)" stroke-linejoin="round"/>
+<path d="M2030.0,474.0 L2130.0,474.0" fill="none" stroke="#8C4FFF" stroke-width="2.2" stroke-dasharray="7 4" marker-end="url(#a-net)" stroke-linejoin="round"/>
+<rect x="210" y="387" width="36" height="36" rx="6" fill="#ED7100" stroke="#fff" stroke-width="1"/>
+<text x="228.0" y="409.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">NAT</text>
+<text x="228.0" y="436.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">divi-prod-nat-</text>
+<text x="228.0" y="448.5" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="400">instance-1</text>
+<text x="228.0" y="461.0" font-size="9.5" fill="#6B7783" text-anchor="middle">t3.nano · EIP</text>
+<rect x="355" y="387" width="36" height="36" rx="6" fill="#ED7100" stroke="#fff" stroke-width="1"/>
+<text x="373.0" y="409.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">NAT</text>
+<text x="373.0" y="436.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">divi-prod-nat-</text>
+<text x="373.0" y="448.5" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="400">instance-2</text>
+<text x="373.0" y="461.0" font-size="9.5" fill="#6B7783" text-anchor="middle">t3.nano · EIP</text>
+<rect x="575" y="387" width="36" height="36" rx="6" fill="#ED7100" stroke="#fff" stroke-width="1"/>
+<text x="593.0" y="409.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">NAT</text>
+<text x="593.0" y="436.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">divi-prod-nat-</text>
+<text x="593.0" y="448.5" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="400">instance-3</text>
+<text x="593.0" y="461.0" font-size="9.5" fill="#6B7783" text-anchor="middle">t3.nano · EIP</text>
+<rect x="88" y="387" width="36" height="36" rx="6" fill="#ED7100" stroke="#fff" stroke-width="1"/>
+<text x="106.0" y="409.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">VPN</text>
+<text x="106.0" y="436.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">divi-prod-</text>
+<text x="106.0" y="448.5" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="400">vpn</text>
+<text x="106.0" y="461.0" font-size="9.5" fill="#6B7783" text-anchor="middle">t3.micro ·</text>
+<text x="106.0" y="472.5" font-size="9.5" fill="#6B7783" text-anchor="middle">OpenVPN</text>
+<rect x="82" y="342" width="30" height="30" rx="6" fill="#8C4FFF" stroke="#fff" stroke-width="1"/>
+<text x="97.0" y="361.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">ALB</text>
+<text x="97.0" y="385.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600"></text>
+<rect x="590" y="155" width="40" height="40" rx="6" fill="#8C4FFF" stroke="#fff" stroke-width="1"/>
+<text x="610.0" y="179.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">IGW</text>
+<text x="610.0" y="208.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">IGW</text>
+<text x="610.0" y="220.5" font-size="9.5" fill="#6B7783" text-anchor="middle">igw-01b6777db4ff253a0</text>
+<rect x="730" y="470" width="40" height="40" rx="6" fill="#8C4FFF" stroke="#fff" stroke-width="1"/>
+<text x="750.0" y="494.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">VGW</text>
+<text x="750.0" y="523.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">VGW</text>
+<text x="750.0" y="535.5" font-size="9.5" fill="#6B7783" text-anchor="middle">vgw-022094ced683ab16e</text>
+<rect x="1470" y="387" width="36" height="36" rx="6" fill="#ED7100" stroke="#fff" stroke-width="1"/>
+<text x="1488.0" y="409.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">NAT</text>
+<text x="1488.0" y="436.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">divi-stg-nat-</text>
+<text x="1488.0" y="448.5" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="400">instance-1</text>
+<text x="1488.0" y="461.0" font-size="9.5" fill="#6B7783" text-anchor="middle">t3.nano · EIP</text>
+<rect x="1615" y="387" width="36" height="36" rx="6" fill="#ED7100" stroke="#fff" stroke-width="1"/>
+<text x="1633.0" y="409.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">NAT</text>
+<text x="1633.0" y="436.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">divi-stg-nat-</text>
+<text x="1633.0" y="448.5" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="400">instance-2</text>
+<text x="1633.0" y="461.0" font-size="9.5" fill="#6B7783" text-anchor="middle">t3.nano · EIP</text>
+<rect x="1835" y="387" width="36" height="36" rx="6" fill="#ED7100" stroke="#fff" stroke-width="1"/>
+<text x="1853.0" y="409.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">NAT</text>
+<text x="1853.0" y="436.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">divi-stg-nat-</text>
+<text x="1853.0" y="448.5" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="400">instance-3</text>
+<text x="1853.0" y="461.0" font-size="9.5" fill="#6B7783" text-anchor="middle">t3.nano · EIP</text>
+<rect x="1348" y="387" width="36" height="36" rx="6" fill="#ED7100" stroke="#fff" stroke-width="1"/>
+<text x="1366.0" y="409.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">VPN</text>
+<text x="1366.0" y="436.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">divi-stg-vpn</text>
+<text x="1366.0" y="448.5" font-size="9.5" fill="#6B7783" text-anchor="middle">t3.micro ·</text>
+<text x="1366.0" y="460.0" font-size="9.5" fill="#6B7783" text-anchor="middle">OpenVPN</text>
+<rect x="1342" y="342" width="30" height="30" rx="6" fill="#8C4FFF" stroke="#fff" stroke-width="1"/>
+<text x="1357.0" y="361.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">ALB</text>
+<text x="1357.0" y="385.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600"></text>
+<rect x="1690" y="155" width="40" height="40" rx="6" fill="#8C4FFF" stroke="#fff" stroke-width="1"/>
+<text x="1710.0" y="179.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">IGW</text>
+<text x="1710.0" y="208.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">IGW</text>
+<text x="1710.0" y="220.5" font-size="9.5" fill="#6B7783" text-anchor="middle">igw-0740a4c4d4837588d</text>
+<rect x="1290" y="470" width="40" height="40" rx="6" fill="#8C4FFF" stroke="#fff" stroke-width="1"/>
+<text x="1310.0" y="494.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">VGW</text>
+<text x="1310.0" y="523.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">VGW</text>
+<text x="1310.0" y="535.5" font-size="9.5" fill="#6B7783" text-anchor="middle">vgw-0dcd38adec9339642</text>
+<rect x="1030" y="151" width="48" height="48" rx="6" fill="#232F3D" stroke="#fff" stroke-width="1"/>
+<text x="1054.0" y="179.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">WWW</text>
+<text x="1054.0" y="212.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">Internet</text>
+<text x="1054.0" y="224.5" font-size="9.5" fill="#6B7783" text-anchor="middle">HTTPS clients · Cloudflare DNS ·</text>
+<text x="1054.0" y="236.0" font-size="9.5" fill="#6B7783" text-anchor="middle">OpenVPN · SaaS APIs</text>
+<rect x="1066" y="520" width="48" height="48" rx="6" fill="#232F3D" stroke="#fff" stroke-width="1"/>
+<text x="1090.0" y="548.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">SQL</text>
+<text x="1090.0" y="581.0" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">SQL Server ERP</text>
+<text x="1090.0" y="593.5" font-size="9.5" fill="#6B7783" text-anchor="middle">192.168.0.0/24</text>
+<rect x="2130" y="450" width="48" height="48" rx="6" fill="#8C4FFF" stroke="#fff" stroke-width="1"/>
+<text x="2154.0" y="478.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">VPC</text>
+<text x="2186" y="460.5" font-size="11" fill="#232F3E" text-anchor="start" font-weight="600">10.40.0.0/16</text>
+<text x="2186" y="473.0" font-size="9.5" fill="#6B7783" text-anchor="start">vpc-0a60e962e0d688e5c ·</text>
+<text x="2186" y="484.5" font-size="9.5" fill="#6B7783" text-anchor="start">account 156358246875 (achieve-</text>
+<text x="2186" y="496.0" font-size="9.5" fill="#6B7783" text-anchor="start">erp-copernicus-stg)</text>
+<rect x="1990" y="454" width="40" height="40" rx="6" fill="#8C4FFF" stroke="#fff" stroke-width="1"/>
+<text x="2010.0" y="478.0" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">PCX</text>
+<text x="2010.0" y="445.5" font-size="11" fill="#232F3E" text-anchor="middle" font-weight="600">pcx-011e305428e123226</text>
+<rect x="791.0" y="476.0" width="148.0" height="28" rx="3" fill="#fff" fill-opacity="0.92"/>
+<text x="865.0" y="487.0" font-size="10" fill="#6B3FD1" text-anchor="middle">vpn-099acf81a915f7c1b · 2</text>
+<text x="865.0" y="499.0" font-size="10" fill="#6B3FD1" text-anchor="middle">tunnels UP</text>
+<rect x="1181.0" y="476.0" width="148.0" height="28" rx="3" fill="#fff" fill-opacity="0.92"/>
+<text x="1255.0" y="487.0" font-size="10" fill="#6B3FD1" text-anchor="middle">vpn-0be9465e2a7e430b7 · 2</text>
+<text x="1255.0" y="499.0" font-size="10" fill="#6B3FD1" text-anchor="middle">tunnels UP</text>
+<rect x="2031.2" y="466.0" width="97.6" height="16" rx="3" fill="#fff" fill-opacity="0.92"/>
+<text x="2080.0" y="477.0" font-size="10" fill="#6B3FD1" text-anchor="middle">peering · active</text>
+</svg>

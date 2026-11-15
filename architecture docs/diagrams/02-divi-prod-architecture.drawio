@@ -1,0 +1,453 @@
+<mxfile host="app.diagrams.net" agent="architecture-docs generator" version="24.0.0">
+  <diagram id="02-divi-prod-architecture" name="Divi production — high-level AWS archite">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2440" pageHeight="1485" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b style=&quot;font-size:20px&quot;&gt;Divi production — high-level AWS architecture&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot; color=&quot;#5B6770&quot;&gt;Account divi-ai-prod (832569409513) · ap-southeast-2 · snapshot 2026-11-15 from read-only AWS API calls · items tagged &amp;#x27;per overview&amp;#x27; or &amp;#x27;inferred&amp;#x27; cannot be verified through AWS APIs&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="2400" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cloud" value="AWS Cloud — account divi-ai-prod (832569409513)" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;dashed=0;fontColor=#232F3E;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="1760" height="1360" as="geometry" />
+        </mxCell>
+        <mxCell id="region" value="Region ap-southeast-2 (Sydney) — all workload resources" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_region;strokeColor=#147EB4;fillColor=none;dashed=1;fontColor=#147EB4;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="cloud">
+          <mxGeometry x="20" y="40" width="1720" height="1295" as="geometry" />
+        </mxCell>
+        <mxCell id="vpc" value="VPC divi-prod — 10.30.0.0/16 (vpc-0bd28e628e263cb74)" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc2;strokeColor=#8C4FFF;fillColor=none;dashed=0;fontColor=#6B3FD1;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="region">
+          <mxGeometry x="20" y="185" width="1680" height="860" as="geometry" />
+        </mxCell>
+        <mxCell id="extcol" value="External services (outside AWS)" style="rounded=1;arcSize=3;strokeColor=#7D8998;fillColor=#F4F6F8;dashed=1;dashPattern=5 4;fontColor=#3F4E63;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="2140" y="150" width="280" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="cust" value="Customer networks (outside AWS)" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_corporate_data_center;strokeColor=#5A6C86;fillColor=none;dashed=0;fontColor=#3F4E63;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="500" width="280" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="ghg" value="GitHub (org divi-global)" style="rounded=1;arcSize=3;strokeColor=#7D8998;fillColor=#F4F6F8;dashed=1;dashPattern=5 4;fontColor=#3F4E63;verticalAlign=top;align=center;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1190" width="280" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="shared" value="Shared account 962705291721" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_account;strokeColor=#CD2264;fillColor=none;dashed=0;fontColor=#CD2264;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="930" width="280" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="az0" value="Availability Zone ap-southeast-2a" style="fillColor=none;strokeColor=#147EB4;dashed=1;dashPattern=4 3;fontColor=#147EB4;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="vpc">
+          <mxGeometry x="140" y="40" width="470" height="800" as="geometry" />
+        </mxCell>
+        <mxCell id="az1" value="Availability Zone ap-southeast-2b" style="fillColor=none;strokeColor=#147EB4;dashed=1;dashPattern=4 3;fontColor=#147EB4;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="vpc">
+          <mxGeometry x="620" y="40" width="470" height="800" as="geometry" />
+        </mxCell>
+        <mxCell id="az2" value="Availability Zone ap-southeast-2c" style="fillColor=none;strokeColor=#147EB4;dashed=1;dashPattern=4 3;fontColor=#147EB4;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="vpc">
+          <mxGeometry x="1100" y="40" width="470" height="800" as="geometry" />
+        </mxCell>
+        <mxCell id="prv0" value="divi-prod-private-1 · 10.30.4.0/24" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#147EB4;fillColor=#E6F2F8;dashed=0;fontColor=#147EB4;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="az0">
+          <mxGeometry x="10" y="265" width="450" height="525" as="geometry" />
+        </mxCell>
+        <mxCell id="prv1" value="divi-prod-private-2 · 10.30.5.0/24" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#147EB4;fillColor=#E6F2F8;dashed=0;fontColor=#147EB4;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="az1">
+          <mxGeometry x="10" y="265" width="450" height="525" as="geometry" />
+        </mxCell>
+        <mxCell id="prv2" value="divi-prod-private-3 · 10.30.6.0/24" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#147EB4;fillColor=#E6F2F8;dashed=0;fontColor=#147EB4;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="az2">
+          <mxGeometry x="10" y="265" width="450" height="525" as="geometry" />
+        </mxCell>
+        <mxCell id="pub0" value="divi-prod-public-1 · 10.30.1.0/24" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#7AA116;fillColor=#F2F6E8;dashed=0;fontColor=#3F6B0F;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="az0">
+          <mxGeometry x="10" y="30" width="450" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="pub1" value="divi-prod-public-2 · 10.30.2.0/24" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#7AA116;fillColor=#F2F6E8;dashed=0;fontColor=#3F6B0F;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="az1">
+          <mxGeometry x="10" y="30" width="450" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="pub2" value="divi-prod-public-3 · 10.30.3.0/24" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#7AA116;fillColor=#F2F6E8;dashed=0;fontColor=#3F6B0F;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="az2">
+          <mxGeometry x="10" y="30" width="450" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="ops" value="Orchestration and observability (regional)" style="rounded=1;arcSize=2;strokeColor=#E7157B;fillColor=#FEF3F8;dashed=0;fontColor=#B00F5E;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="region">
+          <mxGeometry x="20" y="1070" width="1680" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="data" value="Data and streaming (private subnets)" style="rounded=1;arcSize=2;strokeColor=#C925D1;fillColor=#FCF3FD;dashed=0;fontColor=#8F1996;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="vpc">
+          <mxGeometry x="150" y="495" width="1410" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ecs" value="ECS cluster divi-prod — Fargate + Fargate Spot · Container Insights on" style="rounded=1;arcSize=2;strokeColor=#ED7100;fillColor=#FFF7EE;dashed=0;fontColor=#B35400;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="vpc">
+          <mxGeometry x="150" y="665" width="1410" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="topband" value="Front end and object storage (regional, outside the VPC)" style="rounded=1;arcSize=3;strokeColor=#9AA5AE;fillColor=#FFFFFF;dashed=0;fontColor=#3F4E63;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="region">
+          <mxGeometry x="20" y="40" width="1680" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="lam" value="AWS Lambda — VPC-attached (3 AZs), invoked by the ALB" style="rounded=1;arcSize=3;strokeColor=#9AA5AE;fillColor=#FFFFFF;dashed=0;fontColor=#3F4E63;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="vpc">
+          <mxGeometry x="150" y="340" width="1410" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="albbar" value="" style="rounded=1;arcSize=3;strokeColor=#9AA5AE;fillColor=#FFFFFF;dashed=0;fontColor=#3F4E63;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="vpc">
+          <mxGeometry x="150" y="98" width="1410" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="albtxt" value="&lt;b&gt;ALB divi-prod-public (internet-facing) · HTTP :80 → 301 → HTTPS :443 · ACM cert · 11 host-header rules&lt;/b&gt;&lt;br&gt;hosts: divi-prod-&amp;lt;service&amp;gt;.diviglobal.ai · default action: fixed 200 &amp;#x27;Invalid Request&amp;#x27;" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;fontColor=#232F3E;strokeColor=none;fillColor=none;" vertex="1" parent="albbar">
+          <mxGeometry x="58" y="6" width="1300" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="b_intrim" value="&lt;b&gt;Batch tasks — intrim (9 task defs)&lt;/b&gt;&lt;br&gt;middleware (= sync_to_public) · byod-sync&lt;br&gt;engine-v2: runall · daily-forecast · model-6 ·&lt;br&gt;model6-preview · morning-pass · refresh-materialized ·&lt;br&gt;select-forecast-champions" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=10;fontColor=#232F3E;strokeColor=#C5CCD3;fillColor=#FFFFFF;rounded=1;arcSize=4;" vertex="1" parent="ecs">
+          <mxGeometry x="880" y="18" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="b_nocelle" value="&lt;b&gt;Batch tasks — nocelle (8 task defs)&lt;/b&gt;&lt;br&gt;middleware (= sync_to_public)&lt;br&gt;engine-v2: runall · daily-forecast · model-6 ·&lt;br&gt;model6-preview · morning-pass · refresh-materialized ·&lt;br&gt;select-forecast-champions" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=10;fontColor=#232F3E;strokeColor=#C5CCD3;fillColor=#FFFFFF;rounded=1;arcSize=4;" vertex="1" parent="ecs">
+          <mxGeometry x="1145" y="18" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="b_note" value="Run by Step Functions (ecs:RunTask.sync) · images from shared ECR:&lt;br&gt;engine v1.5.0 · middleware v1.0.1 · byod-sync v1.0.0 · sink-connector v1.1.2 · reporting v1.4.0 · website v1.9.1" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=9;fontColor=#5B6770;strokeColor=none;fillColor=none;" vertex="1" parent="ecs">
+          <mxGeometry x="880" y="106" width="520" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="users" value="Client users (browsers)&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;React app + API calls · &amp;lt;client&amp;gt;.diviglobal.ai&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.users;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="190" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="eng" value="Engineers&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;OpenVPN client&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="210" y="300" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="nocelle" value="Nocelle — SQL Server ERP&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;192.168.0.0/24 · txn log via VPN&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.traditional_server;whiteSpace=wrap;" vertex="1" parent="cust">
+          <mxGeometry x="80" y="50" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="intrim" value="Intrim — D365 F&amp;amp;O&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;BYOD Azure SQL · SQL login&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.traditional_server;whiteSpace=wrap;" vertex="1" parent="cust">
+          <mxGeometry x="80" y="190" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ecr" value="ECR — 6 repos&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;divi-engine · middleware · byod-sync · sink-connector · reporting · website&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecr;whiteSpace=wrap;" vertex="1" parent="shared">
+          <mxGeometry x="180" y="45" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="gh" value="GitHub Actions&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;OIDC · tag vX.Y.Z → prod&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;whiteSpace=wrap;" vertex="1" parent="ghg">
+          <mxGeometry x="40" y="70" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="amp_ui" value="divi-prod-mt-ui&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;Amplify · prod branch · intrim + nocelle domains&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.amplify;whiteSpace=wrap;" vertex="1" parent="topband">
+          <mxGeometry x="180" y="30" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="amp_admin" value="divi-prod-admin-portal&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;Amplify · divi-admin.diviglobal.ai&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.amplify;whiteSpace=wrap;" vertex="1" parent="topband">
+          <mxGeometry x="380" y="30" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="S3 — 7 buckets&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;hosting · data · cdc · engine-state · audit · alert-excel-exports · glue-assets (+ TF state)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;whiteSpace=wrap;" vertex="1" parent="topband">
+          <mxGeometry x="580" y="30" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="igw" value="IGW&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;igw-01b6777d…&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.internet_gateway;whiteSpace=wrap;" vertex="1" parent="vpc">
+          <mxGeometry x="20" y="104" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="vgw" value="VGW&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;divi-prod-nocelle · vgw-022094ce…&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.vpn_gateway;whiteSpace=wrap;" vertex="1" parent="vpc">
+          <mxGeometry x="20" y="533" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="alb" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elastic_load_balancing;whiteSpace=wrap;" vertex="1" parent="albbar">
+          <mxGeometry x="10" y="10" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ovpn" value="divi-prod-vpn&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;t3.micro · OpenVPN :1194/udp + :443 · EIP&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;whiteSpace=wrap;" vertex="1" parent="pub0">
+          <mxGeometry x="80" y="110" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="nat1" value="divi-prod-nat-instance-1&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;t3.nano · EIP · private-1 default route&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;whiteSpace=wrap;" vertex="1" parent="pub0">
+          <mxGeometry x="310" y="110" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="nat2" value="divi-prod-nat-instance-2&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;t3.nano · EIP · private-2 default route&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;whiteSpace=wrap;" vertex="1" parent="pub1">
+          <mxGeometry x="50" y="110" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="nat3" value="divi-prod-nat-instance-3&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;t3.nano · EIP · private-3 default route&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;whiteSpace=wrap;" vertex="1" parent="pub2">
+          <mxGeometry x="50" y="110" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="fn0" value="divi-prod-admin-portal-backend&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;Java 21 · 512 MB&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;whiteSpace=wrap;" vertex="1" parent="lam">
+          <mxGeometry x="100" y="36" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="fn1" value="divi-prod-mt-auth&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;Java 21 · 512 MB&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;whiteSpace=wrap;" vertex="1" parent="lam">
+          <mxGeometry x="295" y="36" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="fn2" value="divi-prod-mt-config&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;Java 21 · 512 MB&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;whiteSpace=wrap;" vertex="1" parent="lam">
+          <mxGeometry x="490" y="36" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="fn3" value="divi-prod-mt-financials&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;Java 21 · 2048 MB · 300 s&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;whiteSpace=wrap;" vertex="1" parent="lam">
+          <mxGeometry x="685" y="36" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="fn4" value="divi-prod-mt-perf-track&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;Java 21 · 512 MB&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;whiteSpace=wrap;" vertex="1" parent="lam">
+          <mxGeometry x="880" y="36" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="fn5" value="divi-prod-mt-report-generator&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;Python 3.13 · 1024 MB&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;whiteSpace=wrap;" vertex="1" parent="lam">
+          <mxGeometry x="1075" y="36" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="fn6" value="divi-prod-mt-tracker&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;Java 21 · 512 MB&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;whiteSpace=wrap;" vertex="1" parent="lam">
+          <mxGeometry x="1270" y="36" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="socat" value="divi-prod-socat&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;t3.medium · TCP relay :1433 (inferred) · private-1&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;whiteSpace=wrap;" vertex="1" parent="data">
+          <mxGeometry x="20" y="38" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="mskc" value="MSK Connect&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;debezium-connector · Debezium SQL Server · 1 MCU · outside Terraform (per overview)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.managed_streaming_for_kafka;whiteSpace=wrap;" vertex="1" parent="data">
+          <mxGeometry x="270" y="38" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="msk" value="MSK divi-prod-cdc&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;Kafka 3.9.x · 3 × kafka.m5.large · 350 GiB · TLS + IAM · brokers in 3 AZs&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.managed_streaming_for_kafka;whiteSpace=wrap;" vertex="1" parent="data">
+          <mxGeometry x="520" y="38" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="rds" value="RDS divi-prod-postgres&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;PostgreSQL 17.9 · db.m5.large · 1000 GiB gp3 · single-AZ (2b) · KMS · Performance Insights · 7-day backup · per-client DBs + divi_router (per overview)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.rds;whiteSpace=wrap;" vertex="1" parent="data">
+          <mxGeometry x="790" y="38" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="bastion" value="divi-prod-bastion&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;t3.large · RDP :3389 (inferred) · private-1&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;whiteSpace=wrap;" vertex="1" parent="data">
+          <mxGeometry x="1130" y="38" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="svc0" value="divi-prod-website&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;1 task · :3000&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.fargate;whiteSpace=wrap;" vertex="1" parent="ecs">
+          <mxGeometry x="60" y="35" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="svc1" value="divi-prod-mt-reporting&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;1 task · :8000 · reporting agent&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.fargate;whiteSpace=wrap;" vertex="1" parent="ecs">
+          <mxGeometry x="210" y="35" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="svc2" value="divi-prod-nocelle-engine-v2-job-worker&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;desired 1 · health :80&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.fargate;whiteSpace=wrap;" vertex="1" parent="ecs">
+          <mxGeometry x="360" y="35" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="sink" value="divi-prod-sink-connector&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;2 tasks · nginx :80 sidecar&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.fargate;whiteSpace=wrap;" vertex="1" parent="ecs">
+          <mxGeometry x="520" y="35" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="iam" value="IAM OIDC + roles&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;GitHub OIDC provider · divi-prod-iac-base / -iac-service&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.identity_and_access_management;whiteSpace=wrap;" vertex="1" parent="ops">
+          <mxGeometry x="30" y="70" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="sched" value="EventBridge Scheduler&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;3 schedules · 00:00 byod-sync, 01:00 pipelines · Australia/Adelaide&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eventbridge;whiteSpace=wrap;" vertex="1" parent="ops">
+          <mxGeometry x="210" y="70" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="sfn" value="Step Functions&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;7 state machines (pipelines, morning-pass, previews, byod-sync)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.step_functions;whiteSpace=wrap;" vertex="1" parent="ops">
+          <mxGeometry x="390" y="70" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="evb" value="EventBridge rules&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;3 rules: ECS task state change + 2 morning-pass triggers&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eventbridge;whiteSpace=wrap;" vertex="1" parent="ops">
+          <mxGeometry x="570" y="70" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="sns" value="SNS&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;divi-prod-cloudwatch · email&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sns;whiteSpace=wrap;" vertex="1" parent="ops">
+          <mxGeometry x="750" y="70" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="cw" value="CloudWatch&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;18 alarms (RDS + 4 ECS services) · 36 log groups · Container Insights&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch_2;whiteSpace=wrap;" vertex="1" parent="ops">
+          <mxGeometry x="930" y="70" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="sec" value="Secrets Manager&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;14 secrets (DB, JWT, OpenAI, PagerDuty, Cloudflare, HubSpot, SES, per-tenant)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.secrets_manager;whiteSpace=wrap;" vertex="1" parent="ops">
+          <mxGeometry x="1110" y="70" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ssm" value="SSM Parameter Store&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;15 params under /divi/prod/ (VPC, ECS, RDS, MSK outputs)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.systems_manager_parameter_store;whiteSpace=wrap;" vertex="1" parent="ops">
+          <mxGeometry x="1290" y="70" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="kms" value="KMS&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;alias/divi-prod-postgres (customer-managed) · MSK uses AWS-managed aws/kafka&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.key_management_service;whiteSpace=wrap;" vertex="1" parent="ops">
+          <mxGeometry x="1470" y="70" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="posthog" value="PostHog&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;Amplify rewrites /ingest/* → us.i.posthog.com&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;whiteSpace=wrap;" vertex="1" parent="extcol">
+          <mxGeometry x="20" y="40" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="cf" value="Cloudflare DNS&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;diviglobal.ai zone (no Route 53 zones in account)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;whiteSpace=wrap;" vertex="1" parent="extcol">
+          <mxGeometry x="20" y="115" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="hub" value="HubSpot · Amazon SES&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;website forms and email (secrets present)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;whiteSpace=wrap;" vertex="1" parent="extcol">
+          <mxGeometry x="20" y="190" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="pd" value="PagerDuty&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;routing key in Secrets Manager&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;whiteSpace=wrap;" vertex="1" parent="extcol">
+          <mxGeometry x="20" y="290" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="openai" value="OpenAI API&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;LLM calls (gpt-4o default, per overview)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="2210" y="1025" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="e_users_amp" value="HTTPS — loads React SPA" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#5B6770;strokeWidth=2.0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#3F4A52;" edge="1" parent="1" source="users" target="amp_ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_users_amp_n" value="1" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="115.0" y="205.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_users_igw" value="HTTPS — API calls (JWT + client subdomain)" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#5B6770;strokeWidth=2.0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#3F4A52;" edge="1" parent="1" source="users" target="igw">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="84" y="433" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_users_igw_n" value="2" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="75.0" y="245.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_igw_alb" value="" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#5B6770;strokeWidth=2.0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#3F4A52;" edge="1" parent="1" source="igw" target="albbar">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_alb_lam" value="host-header → Lambda target groups" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#5B6770;strokeWidth=2.0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#3F4A52;" edge="1" parent="1" source="albbar" target="lam">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_alb_lam_n" value="3" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1226.0" y="470.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_alb_ecs" value="host-header → IP target groups" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#5B6770;strokeWidth=2.0;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.15;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#3F4A52;" edge="1" parent="1" source="albbar" target="ecs">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2025" y="421" />
+              <mxPoint x="2025" y="992.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_alb_ecs_n" value="4" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1947.0" y="412.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_lam_rds" value="per-request SQL (per overview: divi_router)" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#5B6770;strokeWidth=2.0;exitX=0.577304964539007;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#3F4A52;" edge="1" parent="1" source="lam" target="rds">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_lam_rds_n" value="5" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1335.0" y="787.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_noc_vgw" value="Site-to-site VPN · 2 tunnels UP · static 192.168.0.0/24" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#8C4FFF;strokeWidth=2.2;dashed=1;dashPattern=7 4;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#6B3FD1;" edge="1" parent="1" source="nocelle" target="vgw">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="322" y="574" />
+              <mxPoint x="322" y="862" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_noc_vgw_n" value="6" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="155.0" y="565.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_vgw_socat" value="" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#8C4FFF;strokeWidth=2.2;dashed=1;dashPattern=7 4;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#6B3FD1;" edge="1" parent="1" source="vgw" target="socat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_socat_mskc" value="TCP 1433 relay" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#C2570C;strokeWidth=3.0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#9A4309;" edge="1" parent="1" source="socat" target="mskc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_socat_mskc_n" value="7" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="605.0" y="853.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mskc_msk" value="topic per table (mssql.*)" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#C2570C;strokeWidth=3.0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#9A4309;" edge="1" parent="1" source="mskc" target="msk">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mskc_msk_n" value="8" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="855.0" y="853.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_msk_sink" value="consume" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#C2570C;strokeWidth=3.0;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#9A4309;" edge="1" parent="1" source="msk" target="sink">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_msk_sink_n" value="9" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1055.4" y="893.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sink_rds" value="writes source_sync (near real time)" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#C2570C;strokeWidth=3.0;exitX=0.95;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#9A4309;" edge="1" parent="1" source="sink" target="rds">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1095.6" y="956" />
+              <mxPoint x="1332" y="956" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_sink_rds_n" value="10" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1086.6" y="980.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_intrim_ecs" value="SQL login via NAT → internet (byod-sync task)" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#C2570C;strokeWidth=3.0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.62;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#9A4309;" edge="1" parent="1" source="intrim" target="ecs">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="312" y="714" />
+              <mxPoint x="312" y="1063.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_intrim_ecs_n" value="11" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="155.0" y="705.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ecs_rds" value="batch tasks, job-workers, reporting → SQL" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#5B6770;strokeWidth=2.0;exitX=0.5858156028368794;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#3F4A52;" edge="1" parent="1" source="ecs" target="rds">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ecs_rds_n" value="12" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1347.0" y="945.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sched_sfn" value="daily cron" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#147EB4;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#0F6590;" edge="1" parent="1" source="sched" target="sfn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sched_sfn_n" value="13" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="645.0" y="1275.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_evb_sfn" value="" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#147EB4;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#0F6590;" edge="1" parent="1" source="evb" target="sfn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sfn_ecs" value="ecs:RunTask.sync (pipeline steps)" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#147EB4;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.18723404255319148;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#0F6590;" edge="1" parent="1" source="sfn" target="ecs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sfn_ecs_n" value="14" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="785.0" y="1235.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ecs_openai" value="LLM calls (egress via NAT instances)" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#5B6770;strokeWidth=2.0;exitX=1;exitY=0.86;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#3F4A52;" edge="1" parent="1" source="ecs" target="openai">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2065" y="1099.0" />
+              <mxPoint x="2065" y="1049" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ecs_openai_n" value="15" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1947.0" y="1090.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cw_sns" value="alarm" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#147EB4;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#0F6590;" edge="1" parent="1" source="cw" target="sns">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cw_sns_n" value="16" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1285.0" y="1275.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_eng_vpn" value="OpenVPN" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#8C4FFF;strokeWidth=2.2;dashed=1;dashPattern=7 4;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#6B3FD1;" edge="1" parent="1" source="eng" target="ovpn">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="334" y="324" />
+              <mxPoint x="334" y="509" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_eng_vpn_n" value="17" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="265.0" y="315.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ecr_ecs" value="image pull (cross-account ECR policy)" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#3B7D23;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.19333333333333333;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#2E6119;" edge="1" parent="1" source="ecr" target="ecs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ecr_ecs_n" value="18" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="255.0" y="990.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_gh_ecr" value="push images (OIDC role divi-ecr-role)" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#3B7D23;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#2E6119;" edge="1" parent="1" source="gh" target="ecr">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="84" y="999" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_gh_ecr_n" value="19" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="75.0" y="1235.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_gh_iam" value="Terraform apply via OIDC roles" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#3B7D23;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#2E6119;" edge="1" parent="1" source="gh" target="iam">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_gh_iam_n" value="20" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="115.0" y="1275.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0" value="&lt;b&gt;Legend (numbers = flow order in the doc)&lt;/b&gt;" style="rounded=1;arcSize=4;html=1;strokeColor=#C5CCD3;fillColor=#FFFFFF;verticalAlign=top;align=left;spacingLeft=8;spacingTop=2;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="2140" y="1180" width="290" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0_l0" value="" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#C2570C;strokeWidth=3.0;">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2150" y="1218" as="sourcePoint" />
+            <mxPoint x="2188" y="1218" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend0_t0" value="ERP data path (CDC / BYOD)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#3F4A52;" vertex="1" parent="1">
+          <mxGeometry x="2194" y="1209" width="230" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0_l1" value="" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#5B6770;strokeWidth=2.0;">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2150" y="1238" as="sourcePoint" />
+            <mxPoint x="2188" y="1238" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend0_t1" value="Application traffic" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#3F4A52;" vertex="1" parent="1">
+          <mxGeometry x="2194" y="1229" width="230" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0_l2" value="" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#147EB4;strokeWidth=2.0;dashed=1;dashPattern=7 4;">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2150" y="1258" as="sourcePoint" />
+            <mxPoint x="2188" y="1258" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend0_t2" value="Orchestration / alarms" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#3F4A52;" vertex="1" parent="1">
+          <mxGeometry x="2194" y="1249" width="230" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0_l3" value="" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#8C4FFF;strokeWidth=2.2;dashed=1;dashPattern=7 4;">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2150" y="1278" as="sourcePoint" />
+            <mxPoint x="2188" y="1278" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend0_t3" value="VPN / peering / admin access" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#3F4A52;" vertex="1" parent="1">
+          <mxGeometry x="2194" y="1269" width="230" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0_l4" value="" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#3B7D23;strokeWidth=2.0;dashed=1;dashPattern=7 4;">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2150" y="1298" as="sourcePoint" />
+            <mxPoint x="2188" y="1298" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend0_t4" value="Deploy / image supply" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#3F4A52;" vertex="1" parent="1">
+          <mxGeometry x="2194" y="1289" width="230" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0_l5" value="" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#8A949E;strokeWidth=1.5;dashed=1;dashPattern=3 3;">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2150" y="1318" as="sourcePoint" />
+            <mxPoint x="2188" y="1318" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend0_t5" value="External, outside Terraform or inferred" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#3F4A52;" vertex="1" parent="1">
+          <mxGeometry x="2194" y="1309" width="230" height="18" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

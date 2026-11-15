@@ -1,0 +1,11 @@
+# Kept local: Teams brief with log exhibits (not for the repo)
+reports/aws-well-architected/divi-ai-prod/briefs/2026-11-13T0618Z-AWS-WA-103-team-brief.html
+
+# Python and editor clutter
+__pycache__/
+*.pyc
+.DS_Store
+*.swp
+
+# Claude Code per-machine settings
+.claude/settings.local.json

@@ -1,0 +1,249 @@
+<mxfile host="app.diagrams.net" agent="architecture-docs generator" version="24.0.0">
+  <diagram id="00-aws-organization-ou-structure" name="AWS Organization — OU structure, Divi ac">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1130" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b style=&quot;font-size:20px&quot;&gt;AWS Organization — OU structure, Divi accounts and cross-account connections&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot; color=&quot;#5B6770&quot;&gt;Divi-relevant OUs and accounts only (the organization has 20 accounts in total; other OUs and accounts are not shown) · snapshot 2026-11-15 from read-only AWS API calls&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="1960" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="org" value="AWS Organization o-o1h2b5d1fq · all features · management account 892166101996 · no SCPs attached (only the AWS-managed FullAWSAccess policy exists)" style="rounded=1;arcSize=1;strokeColor=#232F3E;fillColor=none;dashed=0;fontColor=#232F3E;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="80" width="1960" height="960" as="geometry" />
+        </mxCell>
+        <mxCell id="projects" value="OU projects (ou-r469-hbkrb86z)&lt;br&gt;&lt;font style=&quot;font-size:10px;font-weight:normal&quot; color=&quot;#5B6770&quot;&gt;14 accounts in this OU — only the two Divi accounts are shown&lt;/font&gt;" style="rounded=1;arcSize=2;strokeColor=#5A6C86;fillColor=#F7F9FA;dashed=1;dashPattern=6 4;fontColor=#3F4E63;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="org">
+          <mxGeometry x="580" y="170" width="730" height="580" as="geometry" />
+        </mxCell>
+        <mxCell id="mgmtou" value="OU management (ou-r469-qsgln0ox)" style="rounded=1;arcSize=2;strokeColor=#5A6C86;fillColor=#F7F9FA;dashed=1;dashPattern=6 4;fontColor=#3F4E63;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="org">
+          <mxGeometry x="1430" y="170" width="510" height="580" as="geometry" />
+        </mxCell>
+        <mxCell id="mgmt" value="rb-main — management account · 892166101996" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_account;strokeColor=#CD2264;fillColor=none;dashed=0;fontColor=#CD2264;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="org">
+          <mxGeometry x="20" y="170" width="470" height="580" as="geometry" />
+        </mxCell>
+        <mxCell id="extband" value="" style="rounded=1;arcSize=3;strokeColor=#B8C0C8;fillColor=#FAFBFC;dashed=1;dashPattern=3 3;fontColor=#7D8998;verticalAlign=top;align=left;spacingLeft=8;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="org">
+          <mxGeometry x="580" y="790" width="1360" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="sharedacct" value="shared · 962705291721" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_account;strokeColor=#CD2264;fillColor=none;dashed=0;fontColor=#CD2264;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="mgmtou">
+          <mxGeometry x="20" y="50" width="470" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="prodacct" value="divi-ai-prod · 832569409513" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_account;strokeColor=#CD2264;fillColor=none;dashed=0;fontColor=#CD2264;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="projects">
+          <mxGeometry x="20" y="70" width="340" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="stgacct" value="divi-ai-stg · 398437580121" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_account;strokeColor=#CD2264;fillColor=none;dashed=0;fontColor=#CD2264;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="projects">
+          <mxGeometry x="375" y="70" width="340" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="secacct" value="security · 041558033420" style="shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_account;strokeColor=#CD2264;fillColor=none;dashed=0;fontColor=#CD2264;verticalAlign=top;align=left;spacingLeft=30;fontStyle=1;fontSize=12;html=1;whiteSpace=wrap;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="mgmtou">
+          <mxGeometry x="20" y="370" width="470" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="mgmtnet" value="&lt;b&gt;Network: default VPCs only (172.31.0.0/16), no workloads&lt;/b&gt;&lt;br&gt;ap-southeast-2 vpc-07a7ff37cb5989c72 · us-east-1 vpc-0a081c601f65d8290&lt;br&gt;Member accounts carry OrganizationAccountAccessRole trusting this account" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=10;fontColor=#232F3E;strokeColor=#C5CCD3;fillColor=#FFFFFF;rounded=1;arcSize=4;" vertex="1" parent="mgmt">
+          <mxGeometry x="15" y="485" width="440" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="prodtxt" value="&lt;b&gt;Region ap-southeast-2 (us-east-1: TF state, GuardKite)&lt;/b&gt;&lt;br&gt;3 public /24 (10.30.1–3.0) + 3 private /24 (10.30.4–6.0)&lt;br&gt;AZs 2a/2b/2c · IGW · 3 NAT instances (t3.nano)&lt;br&gt;VGW vgw-022094ced683ab16e → VPN → Nocelle&lt;br&gt;  192.168.0.0/24 (static route)&lt;br&gt;No VPC endpoints · no flow logs · no peering&lt;br&gt;Default VPC 172.31.0.0/16 unused&lt;br&gt;  (vpc-057d805d64b10952d)&lt;br&gt;&lt;br&gt;Workload: ECS Fargate (cluster divi-prod), 7 Lambdas,&lt;br&gt;RDS PostgreSQL, MSK + MSK Connect, ALB, Amplify" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=10;fontColor=#232F3E;strokeColor=#C5CCD3;fillColor=#FFFFFF;rounded=1;arcSize=4;" vertex="1" parent="prodacct">
+          <mxGeometry x="10" y="115" width="320" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="stgtxt" value="&lt;b&gt;Region ap-southeast-2 (us-east-1: TF state, GuardKite;&lt;/b&gt;&lt;br&gt;  ap-southeast-1: 1 Lambda)&lt;br&gt;3 public /24 (10.20.1–3.0) + 3 private /24 (10.20.4–6.0)&lt;br&gt;AZs 2a/2b/2c · IGW · 3 NAT instances (t3.nano)&lt;br&gt;VGW vgw-0dcd38adec9339642 → VPN → Nocelle&lt;br&gt;  192.168.0.0/24 (static route)&lt;br&gt;VPC peering pcx-011e305428e123226 ↔ 10.40.0.0/16&lt;br&gt;  (account 156358246875)&lt;br&gt;No VPC endpoints · no flow logs&lt;br&gt;Default VPC 172.31.0.0/16 unused (vpc-069f67711034e5621)&lt;br&gt;&lt;br&gt;Workload: ECS Fargate (cluster divi-stg, 7 services),&lt;br&gt;21 Lambdas, RDS, MSK, ALB, 7 Amplify apps" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=10;fontColor=#232F3E;strokeColor=#C5CCD3;fillColor=#FFFFFF;rounded=1;arcSize=4;" vertex="1" parent="stgacct">
+          <mxGeometry x="10" y="115" width="320" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="sharednet" value="Network: default VPC 172.31.0.0/16 only (vpc-09eb020ae6ce094fb) — no workloads" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=10;fontColor=#5B6770;strokeColor=none;fillColor=none;" vertex="1" parent="sharedacct">
+          <mxGeometry x="10" y="268" width="450" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="secnote" value="Delegated administrator for CloudTrail (since 2026-11-12).&lt;br&gt;Not inspected (no profile in scope): VPC and other&lt;br&gt;resources are not documented here." style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=10;fontColor=#5B6770;strokeColor=none;fillColor=none;" vertex="1" parent="secacct">
+          <mxGeometry x="10" y="105" width="450" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="exttitle" value="External parties and peers" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=10;fontColor=#7D8998;strokeColor=none;fillColor=none;" vertex="1" parent="extband">
+          <mxGeometry x="960" y="130" width="380" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="access" value="Access: engineers sign in through IAM Identity Center; every Divi account has an AdministrativeAccess and a ReadOnlyAccess role. Terraform state per account: S3 terraform-state-&amp;lt;account-id&amp;gt; + DynamoDB terraform-state-lock (us-east-1)." style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=10.5;fontColor=#3F4A52;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1050" width="1920" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="root" value="Root (r-r469)&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;OUs shown: projects, management · other root-level accounts, OU sandbox and OU suspended (empty) not shown&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.organizations;whiteSpace=wrap;" vertex="1" parent="org">
+          <mxGeometry x="920" y="38" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="orgsvc" value="AWS Organizations&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;o-o1h2b5d1fq · trusted access: account, cloudtrail, iam, stacksets, sso, cost-optimization-hub&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.organizations;whiteSpace=wrap;" vertex="1" parent="mgmt">
+          <mxGeometry x="20" y="50" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="sso" value="IAM Identity Center&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;ssoins-7223815176a971d1 · primary region us-east-1 · 8 permission sets (AdministrativeAccess, ReadOnlyAccess, PowerUser, ViewOnly, SecurityAudit, Billing, S3Only, SandboxReadOnly)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.iam_identity_center;whiteSpace=wrap;" vertex="1" parent="mgmt">
+          <mxGeometry x="20" y="145" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="stackset" value="CloudFormation StackSet&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;terraform-bootstrap · service-managed · auto-deploy to Root · creates terraform-state-&amp;lt;account-id&amp;gt; bucket + terraform-state-lock table (us-east-1) in each member account&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudformation;whiteSpace=wrap;" vertex="1" parent="mgmt">
+          <mxGeometry x="20" y="270" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="trail" value="CloudTrail org-trail&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;organization trail · multi-region · home us-east-1 · delivers to the security account bucket&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudtrail;whiteSpace=wrap;" vertex="1" parent="mgmt">
+          <mxGeometry x="20" y="395" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="prodvpc" value="VPC divi-prod&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;10.30.0.0/16 · vpc-0bd28e628e263cb74&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.vpc;whiteSpace=wrap;" vertex="1" parent="prodacct">
+          <mxGeometry x="20" y="50" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="stgvpc" value="VPC divi-stg&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;10.20.0.0/16 · vpc-036f8752bf325cfcd&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.vpc;whiteSpace=wrap;" vertex="1" parent="stgacct">
+          <mxGeometry x="20" y="50" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ecr" value="ECR — 6 repositories&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;divi-engine · divi-middleware · divi-byod-sync · divi-sink-connector · divi-reporting · divi-website (images 3–29 each) · pull + push allowed for prod and stg account roots&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecr;whiteSpace=wrap;" vertex="1" parent="sharedacct">
+          <mxGeometry x="20" y="45" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="s3web" value="S3 divi-web-contents&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;logos and email-template images · versioned · public GetObject&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;whiteSpace=wrap;" vertex="1" parent="sharedacct">
+          <mxGeometry x="20" y="150" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="oidc" value="GitHub OIDC provider + roles&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;divi-ecr-role, divi-iac-shared-ecr-policy&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.identity_and_access_management;whiteSpace=wrap;" vertex="1" parent="sharedacct">
+          <mxGeometry x="20" y="220" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="trailbkt" value="S3 org-trail-logs-041558033420&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;organization CloudTrail log bucket&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;whiteSpace=wrap;" vertex="1" parent="secacct">
+          <mxGeometry x="20" y="45" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="nocelle" value="Nocelle network&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;192.168.0.0/24 (SQL Server ERP)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.traditional_server;whiteSpace=wrap;" vertex="1" parent="extband">
+          <mxGeometry x="40" y="40" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="guard" value="GuardKite&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;external AWS account 782218477847&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;whiteSpace=wrap;" vertex="1" parent="extband">
+          <mxGeometry x="340" y="40" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="peer" value="Peer VPC 10.40.0.0/16&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;account 156358246875 (achieve-erp-copernicus-stg)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.vpc;whiteSpace=wrap;" vertex="1" parent="extband">
+          <mxGeometry x="606" y="40" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="gh" value="GitHub Actions&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#6B7783&quot;&gt;org divi-global (OIDC federation)&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3D;strokeColor=none;dashed=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=6;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;whiteSpace=wrap;" vertex="1" parent="extband">
+          <mxGeometry x="1020" y="40" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" value="" style="endArrow=none;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#8A949E;strokeWidth=1.5;dashed=1;dashPattern=3 3;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#5B6770;" edge="1" parent="1" source="root" target="mgmt">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="949.6" y="215" />
+              <mxPoint x="275.0" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t2" value="" style="endArrow=none;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#8A949E;strokeWidth=1.5;dashed=1;dashPattern=3 3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#5B6770;" edge="1" parent="1" source="root" target="projects">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="964.0" y="215" />
+              <mxPoint x="965.0" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t3" value="" style="endArrow=none;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#8A949E;strokeWidth=1.5;dashed=1;dashPattern=3 3;exitX=0.8;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#5B6770;" edge="1" parent="1" source="root" target="mgmtou">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="978.4" y="215" />
+              <mxPoint x="1705.0" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_stackset" value="StackSet" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#147EB4;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=1;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.8;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#0F6590;" edge="1" parent="1" source="mgmt" target="projects">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_stackset_n" value="1" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="517.0" y="705.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_trail" value="org-trail logs" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#147EB4;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=1;exitY=0.9;exitDx=0;exitDy=0;entryX=0;entryY=0.7794871794871795;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#0F6590;" edge="1" parent="1" source="projects" target="secacct">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_trail_n" value="2" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1337.0" y="763.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ecr" value="ECR pull / push" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#3B7D23;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.22;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#2E6119;" edge="1" parent="1" source="sharedacct" target="projects">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1400.0" y="390.0" />
+              <mxPoint x="1400.0" y="377.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ecr_n" value="3" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1445.0" y="381.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_gh_ecr" value="OIDC → ECR push" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#3B7D23;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.82;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#2E6119;" edge="1" parent="1" source="gh" target="mgmtou">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1644.0" y="870.0" />
+              <mxPoint x="1868.2" y="870.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_gh_ecr_n" value="4" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1635.0" y="885.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_gh_iac" value="OIDC → Terraform apply" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#3B7D23;strokeWidth=2.0;dashed=1;dashPattern=7 4;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.95;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#2E6119;" edge="1" parent="1" source="gh" target="projects">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1292" y="934" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_gh_iac_n" value="5" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1595.0" y="925.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_guard" value="AssumeRole GuardKite" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#8A949E;strokeWidth=1.5;dashed=1;dashPattern=3 3;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.55;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#5B6770;" edge="1" parent="1" source="guard" target="projects">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="964.0" y="870.0" />
+              <mxPoint x="1001.5" y="870.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_guard_n" value="6" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="955.0" y="885.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_vpn_prod" value="" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#8C4FFF;strokeWidth=2.2;dashed=1;dashPattern=7 4;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#6B3FD1;" edge="1" parent="1" source="prodacct" target="nocelle">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="688.0" y="800" />
+              <mxPoint x="652.0" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_vpn_prod_n" value="7" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="679.0" y="727.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e_vpn_stg" value="Site-to-site VPN ×2" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#8C4FFF;strokeWidth=2.2;dashed=1;dashPattern=7 4;exitX=0.15;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#6B3FD1;" edge="1" parent="1" source="stgacct" target="nocelle">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1026.0" y="845" />
+              <mxPoint x="676.0" y="845" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_peer" value="VPC peering" style="endArrow=block;startArrow=none;endFill=1;startFill=1;html=1;rounded=0;strokeColor=#8C4FFF;strokeWidth=2.2;dashed=1;dashPattern=7 4;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#6B3FD1;" edge="1" parent="1" source="stgacct" target="peer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_peer_n" value="8" vertex="1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#232F3E;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;">
+          <mxGeometry x="1221.0" y="727.0" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0" value="&lt;b&gt;Legend&lt;/b&gt;" style="rounded=1;arcSize=4;html=1;strokeColor=#C5CCD3;fillColor=#FFFFFF;verticalAlign=top;align=left;spacingLeft=8;spacingTop=2;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="870" width="330" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0_l0" value="" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#8A949E;strokeWidth=1.5;dashed=1;dashPattern=3 3;">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="908" as="sourcePoint" />
+            <mxPoint x="88" y="908" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend0_t0" value="OU tree / external relationship" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#3F4A52;" vertex="1" parent="1">
+          <mxGeometry x="94" y="899" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0_l1" value="" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#147EB4;strokeWidth=2.0;dashed=1;dashPattern=7 4;">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="928" as="sourcePoint" />
+            <mxPoint x="88" y="928" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend0_t1" value="Org-level service (StackSet, CloudTrail)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#3F4A52;" vertex="1" parent="1">
+          <mxGeometry x="94" y="919" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0_l2" value="" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#3B7D23;strokeWidth=2.0;dashed=1;dashPattern=7 4;">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="948" as="sourcePoint" />
+            <mxPoint x="88" y="948" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend0_t2" value="Image supply / CI-CD federation" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#3F4A52;" vertex="1" parent="1">
+          <mxGeometry x="94" y="939" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend0_l3" value="" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#8C4FFF;strokeWidth=2.2;dashed=1;dashPattern=7 4;">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="968" as="sourcePoint" />
+            <mxPoint x="88" y="968" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend0_t3" value="VPN and VPC peering" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#3F4A52;" vertex="1" parent="1">
+          <mxGeometry x="94" y="959" width="270" height="18" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
