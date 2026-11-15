@@ -12,7 +12,7 @@ Conventions (IDs, fingerprints, statuses, history, update rules) are defined in
 | | |
 |---|---|
 | **Next ID** | `AWS-WA-137` |
-| **Last updated (UTC)** | 2026-11-15T16:26Z |
+| **Last updated (UTC)** | 2026-11-15T20:25Z |
 
 ## Review log
 
@@ -21,6 +21,7 @@ Conventions (IDs, fingerprints, statuses, history, update rules) are defined in
 | 2026-11-12 | 832569409513 | divi-ai-prod (no IAM alias) | [2026-11-12T0853Z-divi-ai-prod-review.md](reviews/2026-11-12T0853Z-divi-ai-prod-review.md) | 27 | 0 | 0 |
 | 2026-11-12 | 832569409513 | divi-ai-prod (no IAM alias) | deep dive [2026-11-12T1527Z-AWS-WA-103-cdc-pipeline.md](deep-dives/2026-11-12T1527Z-AWS-WA-103-cdc-pipeline.md) (AWS-WA-103) | 2 | 3 | 0 |
 | 2026-11-15 | 832569409513 | divi-ai-prod (no IAM alias) | follow-up checks 2026-11-13 to 2026-11-15: CDC restarts and load analysis, engine review | 7 | 5 | 0 |
+| 2026-11-16 | 832569409513 | divi-ai-prod (no IAM alias) | follow-up re-check 2026-11-16: database nightly I/O and instance class (AWS-WA-111) | 0 | 1 | 0 |
 
 ## Legend
 
@@ -72,7 +73,7 @@ Sorted by severity, then ID. Generated from the finding records below.
 | [AWS-WA-132](#aws-wa-132) | MEDIUM | Operational Excellence | 832569409513 (divi-ai-prod) | ap-southeast-2 | ECS on Fargate, Step Functions | Engine problems end as warnings: unreadable LLM replies, missing tables, zero costs and a step that never runs | Open | 2026-11-15 | 2026-11-15 |
 | [AWS-WA-133](#aws-wa-133) | MEDIUM | Reliability | 832569409513 (divi-ai-prod) | ap-southeast-2 | RDS for PostgreSQL | Engine output tables grow without limit: nocelle's recommendation_model1 went from 1.9 GB to 35 GB since July | Open | 2026-11-15 | 2026-11-15 |
 | [AWS-WA-135](#aws-wa-135) | MEDIUM | Security | 832569409513 (divi-ai-prod) | ap-southeast-2 | ECS on Fargate, Secrets Manager (calls the OpenAI API) | LLM use has no model pinning or evaluation, and client data goes to OpenAI without a documented basis | Open | 2026-11-15 | 2026-11-15 |
-| [AWS-WA-111](#aws-wa-111) | LOW | Performance Efficiency | 832569409513 (divi-ai-prod) | ap-southeast-2 | RDS for PostgreSQL | Nightly pipelines push the database to 100% CPU in bursts and use half its I/O burst balance | Open | 2026-11-12 | 2026-11-12 |
+| [AWS-WA-111](#aws-wa-111) | LOW | Performance Efficiency | 832569409513 (divi-ai-prod) | ap-southeast-2 | RDS for PostgreSQL | Nightly pipelines read 600–730 GiB from disk, push the database to 100% CPU in bursts and use half its I/O burst balance | Open | 2026-11-12 | 2026-11-16 |
 | [AWS-WA-119](#aws-wa-119) | LOW | Security | 832569409513 (divi-ai-prod) | ap-southeast-2, ap-southeast-1, us-east-1 | EBS | EBS encryption by default is off; five of six volumes are unencrypted | Open | 2026-11-12 | 2026-11-12 |
 | [AWS-WA-120](#aws-wa-120) | LOW | Security | 832569409513 (divi-ai-prod) | global | S3 | S3 public-access protection is per bucket only; no lifecycle or access logging | Open | 2026-11-12 | 2026-11-12 |
 | [AWS-WA-121](#aws-wa-121) | LOW | Security | 832569409513 (divi-ai-prod) | global | IAM | Unused IAM users and roles, one with a privilege-escalation policy | Open | 2026-11-12 | 2026-11-12 |
@@ -812,15 +813,15 @@ None from over-provisioning itself; any downsizing needs partition cleanup and a
 | 2026-11-12 | 2026-11-12T0853Z-divi-ai-prod-review.md | Opened | Severity HIGH, confidence Medium |
 | 2026-11-12 | 2026-11-12T1527Z-AWS-WA-103-cdc-pipeline.md (deep dive) | Updated | Whole path ≈ $1,010/month (58% of October) incl. the VPN; ≈ $2,740 spent since the 20 Aug failure; options A–D costed |
 
-### AWS-WA-111 — Nightly pipelines push the database to 100% CPU in bursts and use half its I/O burst balance
+### AWS-WA-111 — Nightly pipelines read 600–730 GiB from disk, push the database to 100% CPU in bursts and use half its I/O burst balance
 
 | Field | Value |
 |---|---|
 | **ID** | AWS-WA-111 |
 | **Severity** | LOW |
 | **Type** | Confirmed issue |
-| **Confidence** | High — 14 days of hourly and 90 days of daily metrics (timestamps converted to UTC); user-facing latency measured |
-| **Severity rationale** | Impact Minor (short bursts at night; hourly average ≤ 29%; no measured user impact) · Likelihood Likely (every night) · modifiers: differs from staging 002 (HIGH), which also saturates during business hours |
+| **Confidence** | High — 14 days of hourly and 90 days of daily metrics (timestamps converted to UTC); user-facing latency measured; Performance Insights load, top SQL and cache counters for 15 Nov (re-check 2026-11-16) |
+| **Severity rationale** | Impact Minor (bursts at night; hourly average CPU up to 49%; read latency ≤ 4.2 ms; no measured user impact) · Likelihood Likely (every night) · modifiers: differs from staging 002 (HIGH), which also saturates during business hours |
 | **Pillar** | Performance Efficiency |
 | **Category** | database-performance |
 | **Account** | 832569409513 (divi-ai-prod) · profile `divi-ai-prod-readonly` · production |
@@ -830,12 +831,12 @@ None from over-provisioning itself; any downsizing needs partition cleanup and a
 | **Resource(s)** | divi-prod-postgres (db.m5.large: 2 vCPU, 8 GiB) |
 | **Status** | Open |
 | **First seen** | 2026-11-12 (2026-11-12T0853Z-divi-ai-prod-review.md) |
-| **Last seen** | 2026-11-12 (2026-11-12T0853Z-divi-ai-prod-review.md) |
+| **Last seen** | 2026-11-16 (follow-up re-check 2026-11-16) |
 | **Fingerprint** | `832569409513/ap-southeast-2/rds/database-performance/divi-prod-postgres` |
-| **Re-check (read-only)** | `aws cloudwatch get-metric-statistics --namespace AWS/RDS --metric-name CPUUtilization --dimensions Name=DBInstanceIdentifier,Value=divi-prod-postgres --statistics Maximum Average --period 3600 --start-time 2026-11-10T00:00:00Z --end-time 2026-11-12T00:00:00Z --profile divi-ai-prod-readonly --region ap-southeast-2` |
-| **Detected by** | SIG MET-02 |
+| **Re-check (read-only)** | `aws cloudwatch get-metric-statistics --namespace AWS/RDS --metric-name CPUUtilization --dimensions Name=DBInstanceIdentifier,Value=divi-prod-postgres --statistics Maximum Average --period 3600 --start-time 2026-11-10T00:00:00Z --end-time 2026-11-12T00:00:00Z --profile divi-ai-prod-readonly --region ap-southeast-2` · daily read volume: the same command with `--metric-name ReadThroughput --statistics Average`, summing Average × 3600 per UTC day |
+| **Detected by** | SIG MET-02; Performance Insights (re-check 2026-11-16) |
 | **WA best practice** | — |
-| **Related** | AWS-WA-101, AWS-WA-102, AWS-WA-107; staging finding 002 |
+| **Related** | AWS-WA-101, AWS-WA-102, AWS-WA-107, AWS-WA-108, AWS-WA-125, AWS-WA-133; staging finding 002 |
 
 **Description**
 The daily CPU maximum was 99.5% on every day of the 90-day window. The bursts come from the nightly tenant pipelines, which start at 01:00
@@ -843,6 +844,14 @@ Adelaide (14:30 UTC): the hourly maximum is 99% from 14:00 to 16:59 UTC, while t
 1.6. The instance's EBS burst balance falls to 54% at 16:00 UTC. The automated backup (19:01–19:31 UTC) runs at a quiet hour and does not overlap.
 Users are not affected (ALB p95 ≤ 0.04 s in those hours). The point is headroom: once the intrim pipeline works (AWS-WA-102) it will add load
 to the same window.
+
+Re-check 2026-11-16: the database reads 592–729 GiB from disk every day (2–15 Nov), almost all of it between 13:00 and 18:00 UTC. That is
+roughly twice the data held outside the two sink log tables (at most about 300 GB: ~822 GiB used minus their 567 GB heap, AWS-WA-129). In the
+busiest hour, reads run at the gp3 volume's 500 MiB/s ceiling and the buffer cache hit ratio falls to 64–70%, then 7%. Performance Insights
+ranks the materialized-view refreshes first by load (`mv_pnl_base` well ahead of the rest), followed by autovacuum and a bulk `UPDATE` on
+`recommendation_model1`; sorts spill to temporary files at the default 4 MB `work_mem`. Memory is not under pressure (about 4.5 GiB available
+all day, swap ≤ 10 MiB): the nightly working set simply does not fit in the cache. A 16 GiB class would help with the smaller tables but would
+still not hold `recommendation_model1` (35 GB and growing, AWS-WA-133), so the larger gain is in how the jobs read.
 
 **Evidence**
 - CPUUtilization hourly maximum, median over 14 days: 13 UTC 42%, 14–16 UTC 99%, other hours 6–13% [Measured · AWS/RDS · converted from local-time CLI output]
@@ -852,33 +861,74 @@ to the same window.
 - ALB TargetResponseTime p95 0.01–0.04 s at 14–16 UTC [Measured · 14 days hourly]
 - nocelle morning pass ExecutionTime up to ≈ 6.1 h; nocelle pipeline up to ≈ 3.1 h [Measured · AWS/States]
 
+Re-check 2026-11-16 (CloudWatch 14 days hourly to 15 Nov 19:00 UTC; Performance Insights for 15 Nov 11:00–21:00 UTC; PI hourly points are
+labelled at the end of the hour and were aligned to CloudWatch):
+- Daily disk read volume (ReadThroughput hourly Average × 3600): 592–729 GiB on every full day 2–15 Nov; daily write volume 103–119 GiB, 256 GiB on 6 Nov (the manual load, AWS-WA-101) [Measured · AWS/RDS]
+- 15 Nov, hour starting 15:00 UTC: ReadThroughput average 144 MiB/s, ReadIOPS average 2,850, CPU average 47% [Measured]
+- 14-day hourly maxima: ReadThroughput 502 MiB/s (gp3 provisioned 500 MiB/s), ReadIOPS 11,580 (provisioned 12,000), DiskQueueDepth 77, ReadLatency 4.2 ms; EBSByteBalance% minimum 50% [Measured · AWS/RDS]
+- Buffer cache hit ratio, blks_hit / (blks_hit + blks_read), 15 Nov hours starting 13:00, 14:00, 15:00 and 16:00 UTC: 99.3%, 64.3%, 69.9%, 7.3%; 100% in all other hours; peak 19,409 blocks read a second (≈ 152 MiB/s) [Measured · PI counters db.Cache.blks_hit, db.IO.blks_read]
+- DB load, 15 Nov 15:00–16:00 UTC: 1.88 average active sessions — CPU 0.90, IO:DataFileRead 0.34, IPC:MessageQueueSend 0.34 (parallel query workers), Timeout:VacuumDelay 0.16, IO:BufFileRead/Write 0.10 (temporary files) [Measured · PI db.load by wait event]
+- Top SQL by load, 15 Nov 11:00–21:00 UTC (average active sessions over the window): `REFRESH MATERIALIZED VIEW mv_pnl_base` 0.121; `v_product_forecast_pnl_daily` 0.027; `mv_pnl_forecast` 0.026; autovacuum `VACUUM ANALYZE public.recommendation_model1` 0.021; a per-product cost aggregation `SELECT` 0.009; `CREATE` / `REFRESH MATERIALIZED VIEW mv_fact_daily_product_forecast` 0.008 / 0.007; `mv_pnl_actual` 0.007; `UPDATE recommendation_model1 … SET review_urgency, review_decision, …` 0.003. Per-statement block-read statistics were empty, so the read volume cannot be split by statement [Measured · PI describe-dimension-keys, tokenized SQL]
+- Temporary-file writes up to ≈ 6.5 MB/s at the peak [Measured · PI db.Temp.temp_bytes]; `work_mem` engine default (4 MB), `shared_buffers` 25% of instance memory (≈ 2 GiB), `effective_cache_size` 50% [Confirmed · rds describe-db-parameters, divi-prod-postgres-postgres]
+- FreeableMemory hourly average 4.3–4.6 GiB (minimum 3.3 GiB); SwapUsage ≤ 10 MiB [Measured · 14 days]
+- Instance-class options, Sydney, Single-AZ, RDS for PostgreSQL; all orderable for 17.9 [Confirmed · pricing get-products, ec2 describe-instance-types, rds describe-orderable-db-instance-options · 2026-11-16]:
+
+  | Class | vCPU / memory | EBS baseline / burst | On-demand | 1-year reserved, no upfront |
+  |---|---|---|---|---|
+  | db.m5.large (current) | 2 Intel (hyper-threads) / 8 GiB | 81 / 594 MB/s | $0.247/h (≈ $180/month) | $0.171/h (≈ $125/month) |
+  | db.m8g.large | 2 Graviton4 / 8 GiB | 79 / 1,250 MB/s | $0.234/h (≈ $171/month) | $0.157/h (≈ $114/month) |
+  | db.r6g.large | 2 Graviton2 / 16 GiB | 79 / 594 MB/s | $0.270/h (≈ $197/month) | $0.184/h (≈ $134/month) |
+  | db.r8g.large | 2 Graviton4 / 16 GiB | 79 / 1,250 MB/s | $0.287/h (≈ $210/month) | $0.192/h (≈ $140/month) |
+
+  db.r7g.large costs the same as r8g on demand but more reserved ($0.221/h). The burst above 500 MiB/s does not help while gp3 throughput is 500 MiB/s.
+
 **Business impact**
 None today; the risk is slower overnight processing as tenants are added.
 
 **Technical impact**
-CPU and I/O bursts during the batch; a second tenant's pipeline in the same window could exhaust the burst balance and stretch the runs.
+CPU and I/O bursts during the batch. Each night the jobs reread roughly twice the database's non-log data, because the materialized views are
+rebuilt in full and the largest output table keeps growing. A second tenant's pipeline in the same window could exhaust the burst balance and
+stretch the runs.
 
 **Recommended remediation**
 1. Before the intrim pipeline is re-enabled (AWS-WA-102), stagger the two tenants' schedules (for example 30–60 minutes apart).
-2. Use Performance Insights (7-day retention is on) to find the top SQL between 14:00 and 17:00 UTC.
-3. Alarm on EBSByteBalance% below 20% (AWS-WA-108); revisit the instance class together with the Multi-AZ decision (AWS-WA-107).
-4. Verify: hourly average CPU and burst balance with both tenants running.
-*Do not / alternatives considered:* no backup-window change is needed; do not scale up on the strength of brief maxima.
+2. Stop rebuilding the materialized views from scratch every night, starting with `mv_pnl_base`: limit them to the dates that changed, or
+   replace them with summary tables the pipeline appends to by date. `REFRESH MATERIALIZED VIEW` always replaces the whole content;
+   `CONCURRENTLY` only avoids blocking readers and is not faster for large changes.
+3. Add retention and date partitioning to `recommendation_model1` (AWS-WA-133), so its autovacuum and the review `UPDATE` touch less data.
+4. Raise `work_mem` only in the refresh job's session (`SET work_mem = …` before the refreshes), sized to remove the temporary-file spill; do
+   not raise it for the whole server.
+5. Change the instance class with the next planned change. It restarts the single-AZ instance (minutes of downtime for every tenant), so use
+   the maintenance window and decide it together with Multi-AZ (AWS-WA-107). After steps 2–4: db.m8g.large (cheaper than today, faster cores,
+   same 8 GiB). If intrim is re-enabled before those steps: db.r8g.large (16 GiB). Buy a 1-year reservation only once the class is settled
+   (AWS-WA-125).
+6. Alarm on EBSByteBalance% below 20% (AWS-WA-108).
+7. Verify: daily read volume well below 600 GiB; busy-hour cache hit ratio; hourly average CPU and burst balance with both tenants running.
+*Do not / alternatives considered:* no backup-window change is needed; do not scale up on the strength of brief maxima; a larger memory class
+alone will not stop the rereads (the 35 GB table does not fit in 16 GiB); a separate analytics database such as ClickHouse is not needed at
+this data size (discussed 2026-11-16).
 
-**Implementation complexity:** Low
-**Trade-offs / risks:** staggering moves when outputs are ready.
+**Implementation complexity:** Low (staggering, session `work_mem`, alarm, class change) to Medium (reworking the views)
+**Trade-offs / risks:** staggering moves when outputs are ready; date-limited views need the pipeline to know which dates changed; a class
+change restarts the database.
 
 **Cost impact**
-None expected.
+None for steps 1–4 and 6. Class change, against today's on-demand $180/month: db.m8g.large −$9/month on demand (−$66/month with a 1-year
+no-upfront reservation); db.r8g.large +$30/month on demand (−$40/month reserved). Pricing API, Sydney, Single-AZ, 2026-11-16; month = 730 h.
 
 **References**
 - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html — gp3 baseline; instance-class EBS limits
 - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html — backup window behaviour
+- https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.Summary.html — vCPU, memory and EBS bandwidth per instance class
+- https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights_Counters.html — PostgreSQL counters blks_hit, blks_read, temp_bytes
+- https://www.postgresql.org/docs/17/sql-refreshmaterializedview.html — a refresh replaces the whole view; CONCURRENTLY trade-offs
+- https://www.postgresql.org/docs/17/runtime-config-resource.html — work_mem (default 4 MB) and spills to temporary files
 
 **History**
 | Date | Review | Event | Note |
 |---|---|---|---|
 | 2026-11-12 | 2026-11-12T0853Z-divi-ai-prod-review.md | Opened | Severity LOW, confidence High |
+| 2026-11-16 | follow-up re-check 2026-11-16 | Updated | Nightly reads measured at 592–729 GiB a day; cache hit ratio falls to 7–70% in the busy hours; top load is materialized-view refreshes (mv_pnl_base first); instance classes priced; title, evidence and remediation updated; severity unchanged |
 
 ### AWS-WA-112 — The nocelle job-worker service has been crash-looping since 20 October
 
